@@ -14,71 +14,81 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/dashboard");
 	//
   
-  
+  /* entities states */
+  /* to go to books search screen */
   $stateProvider
-		.state('inlusr', {
-	    	url: "/inlusr",
-	    	views: {
-	    		"mainView": {
-	    			templateUrl: "assets/tpl/apps/inlUsr/inlUsr.html", 
-	    			controller: "InlUsrController"
-	    			},
-	    		"footerView": {templateUrl: "tpl/footer.html"}
-			}
-	});
-	/*		  
-  $stateProvider
-		.state('editInlUsr', {
-			url: "/inlusr/{id}",
-	    	templateUrl: "assets/tpl/apps/inlUsr/inlUsrEdit.html",
-			controller: "InlUsrEditController",
+        .state('book', {
+	    	url: "/book",
 			resolve: {
-				mode : function() {
-      				return "EDIT";
-    			},
-				item : ['$stateParams', 'InlUsrRestService', '$log', function($stateParams, InlUsrRestService, log) {
-					return InlUsrRestService.get({id : $stateParams.id}, function success(result) {}, function failure(result){
-						log.info("something goes wrong !");
-						}).$promise;
+				config : ['$stateParams', 'AppParameterRestService', '$log', function($stateParams, appParameterRestService, log) {
+					return appParameterRestService.getParameter({domain: 'SCREEN_CONFIG', key: 'Book'}).$promise.then (function (result) {
+						if (!result.value) {
+                   			// no data has been found inside the dabatase, we need to create a fresh one
+							return appParameterRestService.create({"domain": "SCREEN_CONFIG", "key": "Book", "value": "{ \"id\": true, \"title\": true, \"description\": true, \"publicationDate\": true, \"authorId\": true, \"price\": true, \"barcodeid\": true}"});
+						} else {
+							return result;
+						}
+						});
                     }]
+				},
+			views: {
+            	"searchView": {templateUrl: "assets/tpl/apps/book/bookSearch.html"},
+				"mainView": {templateUrl: "assets/tpl/apps/book/book.html",
+					controller: "BookController"},
+				"footerView": {templateUrl: "tpl/footer.html"}
 				}
-	});*/
-  $stateProvider
-		.state('editInlUsr', {
-			url: "/inlusr/{id}",
+            })	            
+     
+        /* to go in Edit mode on a book entity */
+		.state('editBook', {
+			url: "/book/{id}",
 			views: {
 				"mainView": {
-	    			templateUrl: "assets/tpl/apps/inlUsr/inlUsrEdit.html", 
-	    			controller: "InlUsrEditController"
-	    			},
-	    		"footerView": {templateUrl: "tpl/footer.html"}
-			},
-	    	/*templateUrl: "assets/tpl/apps/inlUsr/inlUsrEdit.html",*/
-			/*controller: "InlUsrEditController",*/
+					templateUrl: "assets/tpl/apps/book/bookEdit.html",
+					controller: "BookEditController"
+					},
+				"footerView": {templateUrl: "tpl/footer.html"}
+				},
 			resolve: {
 				mode : function() {
       				return "EDIT";
     			},
-				item : ['$stateParams', 'InlUsrRestService', '$log', function($stateParams, InlUsrRestService, log) {
-					return InlUsrRestService.get({id : $stateParams.id}, function success(result) {}, function failure(result){
+				item : ['$stateParams', 'BookRestService', '$log', function($stateParams, BookRestService, log) {
+					return BookRestService.get({id : $stateParams.id}, function success(result) {}, function failure(result){
 						log.info("something goes wrong !");
 						}).$promise;
                     }]
 				}
-	});
+		})   
+		
+		/* to go in read only mode on a book entity */
+		.state('viewBook', {
+			url: "/book/view/{id}",	    			
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/apps/book/bookEdit.html",
+					controller: "BookEditController"
+					},
+				"footerView": {templateUrl: "tpl/footer.html"}
+				},
+			resolve: {
+				mode : function() {
+      				return "VIEW";
+    			},
+				item : ['$stateParams', 'BookRestService', '$log', function($stateParams, BookRestService, log) {
+					return BookRestService.get({id : $stateParams.id}, function success(result) {}, function failure(result){
+						log.info("something goes wrong !");
+						}).$promise;
+                    }]
+				}
+		});
   
+  /* common states */
   $stateProvider
 		.state('home', {
             url: "/",
             views: {
 				"mainView": {templateUrl: "tpl/home.html"},
-				"footerView": {templateUrl: "tpl/footer.html"}
-				}
-            })
-		.state('book', {
-            url: "/book",
-            views: {
-				"mainView": {templateUrl: "tpl/test.html"},
 				"footerView": {templateUrl: "tpl/footer.html"}
 				}
             })
