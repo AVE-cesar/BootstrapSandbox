@@ -2,7 +2,7 @@
 <html lang="en" ng-app="mainApp">
   <head>
     <meta charset="utf-8">
-    <title>AngularJS Lab Demo</title>
+    <title>Your application name</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="./assets/css/bootstrap.css" media="screen">
@@ -12,7 +12,7 @@
     
     <link rel="stylesheet" href="./assets/css/bootstrap-drawer.css"/>
     <link rel="stylesheet" href="./assets/css/custom.min.css">
-	<!-- my styme customization -->
+	<!-- my style customization -->
     <link rel="stylesheet" href="./assets/css/mystyle.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -192,7 +192,8 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a></li>
-            <li><a href="#" target="_blank">Link 2</a></li>
+            <li><a href="https://design.google.com/icons/" target="_blank">Icons</a></li>
+            <li><a href="http://getbootstrap.com/components/" target="_blank">Doc Bootstrap</a></li>
           </ul>
 
         </div>
@@ -207,6 +208,12 @@
 
 
     </div> <!-- fin du container -->
+	
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
  
   </body>
 </html>
