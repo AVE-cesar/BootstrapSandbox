@@ -1,0 +1,5 @@
+/* container that takes all the free space */
+.container-full {
+  margin: 00 auto;
+  width: 90%;
+}
