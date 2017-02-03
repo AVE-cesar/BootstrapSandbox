@@ -191,13 +191,19 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Administration<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="#">Logs Level</a></li>
+                <li><a ui-sref="dashboard">Dashboard</a></li>
+				<li class="divider"></li>
+                <li><a ui-sref="logLevels">Logs Level</a></li>
                 <li class="divider"></li>
 				<li><a href="swagger-ui.html">API via Swagger</a></li>
                 <li class="divider"></li>
-                <li><a href=""">Elastic Search</a></li>
+                <li><a href="#">Elastic Search</a></li>
                 <li class="divider"></li>
                 <li><a href="h2-console">H2 Admin console</a></li>
+				<li class="divider"></li>
+                <li><a ui-sref="settings">Settings</a></li>
+				<li class="divider"></li>
+                <li><a ui-sref="logout">Logout</a></li>
               </ul>
             </li>
             <li>

@@ -35,7 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             	"searchView": {templateUrl: "assets/tpl/apps/book/bookSearch.html"},
 				"mainView": {templateUrl: "assets/tpl/apps/book/book.html",
 					controller: "BookController"},
-				"footerView": {templateUrl: "tpl/footer.html"}
+				"footerView": {templateUrl: "assets/tpl/commons/footer.html"}
 				}
             })	            
      
@@ -47,7 +47,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 					templateUrl: "assets/tpl/apps/book/bookEdit.html",
 					controller: "BookEditController"
 					},
-				"footerView": {templateUrl: "tpl/footer.html"}
+				"footerView": {templateUrl: "assets/tpl/commons/footer.html"}
 				},
 			resolve: {
 				mode : function() {
@@ -69,7 +69,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 					templateUrl: "assets/tpl/apps/book/bookEdit.html",
 					controller: "BookEditController"
 					},
-				"footerView": {templateUrl: "tpl/footer.html"}
+				"footerView": {templateUrl: "assets/tpl/commons/footer.html"}
 				},
 			resolve: {
 				mode : function() {
@@ -88,51 +88,51 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('home', {
             url: "/",
             views: {
-				"mainView": {templateUrl: "tpl/home.html"},
-				"footerView": {templateUrl: "tpl/footer.html"}
+				"mainView": {templateUrl: "assets/tpl/commons/home.html"},
+				"footerView": {templateUrl: "assets/tpl/commons/footer.html"}
 				}
             })
 		.state('form', {
             url: "/form",
             views: {
-				"mainView": {templateUrl: "tpl/form.html"},
-				"footerView": {templateUrl: "tpl/footer.html"}
+				"mainView": {templateUrl: "assets/tpl/commons/form.html"},
+				"footerView": {templateUrl: "assets/tpl/commons/footer.html"}
 				}
             })
 		.state('table', {
             url: "/table",
             views: {
-            	"searchView": {templateUrl: "tpl/search.html"},
-				"mainView": {templateUrl: "tpl/table.html"},
-				"footerView": {templateUrl: "tpl/emptyFooter.html"}
+            	"searchView": {templateUrl: "assets/tpl/commons/search.html"},
+				"mainView": {templateUrl: "assets/tpl/commons/table.html"},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             })
         .state('testAlert', {
             url: "/testAlert",
             views: {
 				"mainView": {
-					templateUrl: "tpl/testAlert.html",
+					templateUrl: "assets/tpl/commons/testAlert.html",
 					controller: "TestAlertController"},
-				"footerView": {templateUrl: "tpl/emptyFooter.html"}
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             })
         .state('testIcon', {
             url: "/testIcon",
             views: {
 				"mainView": {
-					templateUrl: "tpl/testIcon.html"
+					templateUrl: "assets/tpl/commons/testIcon.html"
 				},
-				"footerView": {templateUrl: "tpl/emptyFooter.html"}
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             })
 		.state('testAside', {
             url: "/testAside",
             views: {
 				"mainView": {
-					templateUrl: "tpl/testAside.html",
+					templateUrl: "assets/tpl/commons/testAside.html",
 					controller: "TestAsideController"
 				},
-				"footerView": {templateUrl: "tpl/emptyFooter.html"}
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             });
   
@@ -140,33 +140,56 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
     	.state('dashboard', {
       		url: "/dashboard",
-      		templateUrl: "assets/tpl/dashboard.html"
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/dashboard.html"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
 	});
 	
 	$stateProvider
     	.state('settings', {
       		url: "/settings",
-      		templateUrl: "assets/tpl/settings.html"
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/settings.html"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
     });
     
     $stateProvider
     	.state('logout', {
       		url: "/logout",
-      		templateUrl: "assets/tpl/logout.html"
-    });	
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/logout.html"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
+    });
     
     $stateProvider
     	.state('logLevels', {
       		url: "/logLevels",
-      		templateUrl: "assets/tpl/logLevels.html",
-      		controller: "LogsController"
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/logLevels.html"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
     });
     
     $stateProvider
     	.state('translation', {
       		url: "/translation",
-      		templateUrl: "assets/tpl/apps/admin/translation.html",
-      		controller: "TranslationController"
-    });		
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/apps/admin/translation.html"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
+    });
 
 });
