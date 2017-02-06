@@ -11,7 +11,7 @@
 app.config(function($stateProvider, $urlRouterProvider) {
 	//
 	// For any unmatched url, redirect to /dashboard
-	$urlRouterProvider.otherwise("/dashboard");
+	//$urlRouterProvider.otherwise("/dashboard");
 	//
   
   /* entities states */
@@ -102,11 +102,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('table', {
             url: "/table",
             views: {
-            	"searchView": {templateUrl: "assets/tpl/commons/search.html"},
-				"mainView": {templateUrl: "assets/tpl/commons/table.html"},
+            	"searchView": {templateUrl: "assets/tpl/commons/search.html",
+							controller: "tableController"},
+				"mainView": {templateUrl: "assets/tpl/commons/table.html",
+							controller: "tableController"},
 				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
-				}
-            })
+				},
+			resolve: {
+				mode : function() {
+      				return "VIEW";
+    			}}
+			}) /* state end*/
         .state('testAlert', {
             url: "/testAlert",
             views: {
@@ -134,8 +140,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				},
 				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
+            })
+		.state('testUpload', {
+            url: "/testUpload",
+            views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/testUpload.html",
+					controller: "TestUploadController"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
             });
-  
+ 
+ 
 	// Now set up the states
 	$stateProvider
     	.state('dashboard', {

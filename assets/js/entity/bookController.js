@@ -425,9 +425,9 @@ scope.$on("$destroy", function() {
 									
 						
 				/** main REST client for managing (4 CRUD calls) Book entity */
-app.factory('BookRestService', function ($resource) {
+/* appel dynamique */
+/*app.factory('BookRestService', function ($resource) {
 	return $resource('api/books/bypage/?page=:page&size=:size', {}, {
-			/* sorting sample: &sort=aColumnName,desc&sort=anotherColumnName,asc */
 		'query': { method: 'GET', isArray: false},
 		'get': {
 			method: 'GET',
@@ -442,6 +442,19 @@ app.factory('BookRestService', function ($resource) {
 		'delete': { method:'DELETE', url: 'api/books/:id' },
 		'search': { method: 'POST', url: 'api/books/search/', isArray: false}
 	});
+});
+*/
+/** main REST client for managing (4 CRUD calls) Book entity */
+/* appel static */
+app.factory('BookRestService', function ($resource) {
+	return {
+		'query': {},
+		'get': {},
+		'create': {},
+		'update': {},
+		'delete': {},
+		'search': {}
+	};
 });
 
 /** REST client for managing Elastic search calls on Book entity */
