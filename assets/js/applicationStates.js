@@ -114,7 +114,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     			},
 				item : ['$stateParams', 'BookRestService', '$log', function($stateParams, BookRestService, log) {
 					log.info("cool:");
-					var instance = {lastname: 'AVE', firstname: 'bertrand'};
+					var instance = {lastname: 'AVE', firstname: 'bertrand', email: 'toto@gmail.com'};
 					log.info("objet: " + instance.lastname);
 					return instance;
                     }]
