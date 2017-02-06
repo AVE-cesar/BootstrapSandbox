@@ -2,9 +2,12 @@
 /* Simple Controller */
 
 app.controller("tableController", ["$scope",  
-"$log", "$stateParams", function(scope, log, stateParams) {
+"$log", "$stateParams", "mode", "item", function(scope, log, stateParams, mode, item) {
 
-log.info("stateParams: " + stateParams.mode);
-log.info("inside TableController, scope: " + scope.mode);
+log.info("mode: " + mode);
+log.info("inside TableController, mode: " + mode);
+log.info("inside TableController, item: " + item.lastname);
+
+scope.mode = mode;
 
 }]);

@@ -111,7 +111,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			resolve: {
 				mode : function() {
       				return "VIEW";
-    			}}
+    			},
+				item : ['$stateParams', 'BookRestService', '$log', function($stateParams, BookRestService, log) {
+					log.info("cool:");
+					var instance = {lastname: 'AVE', firstname: 'bertrand'};
+					log.info("objet: " + instance.lastname);
+					return instance;
+                    }]
+				}
 			}) /* state end*/
         .state('testAlert', {
             url: "/testAlert",
