@@ -2,7 +2,7 @@
 /* Simple Controller */
 
 app.controller("tableController", ["$scope",  
-"$log", "$stateParams", "$state", "mode", "item", function(scope, log, stateParams, state, mode, item) {
+"$log", "$stateParams", "$state", "mode", "item", "data", function(scope, log, stateParams, state, mode, item, data) {
 
 log.info("mode: " + mode);
 log.info("inside TableController, mode: " + mode);
@@ -11,6 +11,7 @@ log.info("inside TableController, item: " + item.lastname);
 /* permet de passer les valeurs à la page pour affichage */
 scope.mode = mode;
 scope.item = item;
+scope.data = data;
 
 /** Executes the search with criteria on the server side */
 scope.doSearch = function(item) {
