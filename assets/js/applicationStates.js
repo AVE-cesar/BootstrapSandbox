@@ -112,6 +112,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				mode : function() {
       				return "VIEW";
     			},
+				data : function() {
+      				return {email: 'cool'};
+    			},
 				item : ['$stateParams', 'BookRestService', '$log', function($stateParams, BookRestService, log) {
 					log.info("cool:");
 					var instance = {lastname: 'AVE', firstname: 'bertrand', email: 'toto@gmail.com'};

@@ -2,7 +2,7 @@
 /* Simple Controller */
 
 app.controller("tableController", ["$scope",  
-"$log", "$stateParams", "mode", "item", function(scope, log, stateParams, mode, item) {
+"$log", "$stateParams", "$state", "mode", "item", function(scope, log, stateParams, state, mode, item) {
 
 log.info("mode: " + mode);
 log.info("inside TableController, mode: " + mode);
@@ -16,6 +16,8 @@ scope.item = item;
 scope.doSearch = function(item) {
 	log.info("startSearch, criteria: " + scope.item);
 	scope.data = item;
+	
+	/*state.go('table');*/
 /*
 	// call search on the server side and refresh the grid
 	bookRestService.search(item, function success(result){
