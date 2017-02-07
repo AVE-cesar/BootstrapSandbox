@@ -169,6 +169,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				},
 				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
+            })
+		.state('searchDetail', {
+            url: "/searchDetail",
+            views: {
+				"searchView": {
+					templateUrl: "assets/tpl/commons/searchDetailsearch.html",
+					controller: "SearchDetailController"
+				},
+				"mainView": {
+					templateUrl: "assets/tpl/commons/searchDetailMain.html",
+					controller: "SearchDetailController"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
+            })
+		.state('searchDetail.load', {
+            url: "/searchDetailload",
+            views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/searchDetailMain2.html",
+					controller: "SearchDetailController"
+				}
+				}
             });
  
  
