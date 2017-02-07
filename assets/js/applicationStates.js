@@ -20,7 +20,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('book', {
 	    	url: "/book",
 			resolve: {
+				config : function() {
+      				return {"domain": "SCREEN_CONFIG", "key": "Book", "value": "{ \"id\": true, \"title\": true, \"description\": true, \"publicationDate\": true, \"authorId\": true, \"price\": true, \"barcodeid\": true}"};
+    			},
+				data : function() {
+					return [{id: "1", title: "Java", description: "cool"},{id: "2", title: "C++", description: "cool"}];
+				}
+				/*,
 				config : ['$stateParams', 'AppParameterRestService', '$log', function($stateParams, appParameterRestService, log) {
+					log.info("Dans resolve de book");
 					return appParameterRestService.getParameter({domain: 'SCREEN_CONFIG', key: 'Book'}).$promise.then (function (result) {
 						if (!result.value) {
                    			// no data has been found inside the dabatase, we need to create a fresh one
@@ -29,10 +37,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 							return result;
 						}
 						});
-                    }]
+                    }]*/
 				},
 			views: {
-            	"searchView": {templateUrl: "assets/tpl/apps/book/bookSearch.html"},
+            	"searchView": {templateUrl: "assets/tpl/apps/book/bookSearch.html",
+					controller: "BookController"},
 				"mainView": {templateUrl: "assets/tpl/apps/book/book.html",
 					controller: "BookController"},
 				"footerView": {templateUrl: "assets/tpl/commons/footer.html"}

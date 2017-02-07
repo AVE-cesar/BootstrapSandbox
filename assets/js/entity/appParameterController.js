@@ -7,10 +7,10 @@
 //
 
 
-app.controller("AppParameterController", ["$scope", "$window", "$aside", "PlaceholderTextService", 
+app.controller("AppParameterController", ["$scope", "$window", "$aside", 
 "$log", "AppParameterRestService", "AppParameterRestSearchService", 
 		"AppParameterRestIndexService", "AppParameterRestMassDeleteService",
-						"$alert", "$timeout", "config", function(scope, window, c, d, log, 
+						"$alert", "$timeout", "config", function(scope, window, c, log, 
 		appParameterRestService, appParameterRestSearchService, appParameterRestIndexService, 
 		appParameterRestMassDeleteService, 
 						alertService, timeoutService, config) {
@@ -423,34 +423,15 @@ scope.$on("$destroy", function() {
 						
 				/** main REST client for managing (4 CRUD calls) AppParameter entity */
 app.factory('AppParameterRestService', function ($resource, $log) {
-	return $resource('api/appParameters/bypage/?page=:page&size=:size', {}, {
-			/* sorting sample: &sort=aColumnName,desc&sort=anotherColumnName,asc */
-		'query': { method: 'GET', isArray: false},
-		'get': {
-			method: 'GET',
-			url: 'api/appParameters/:id',
-			transformResponse: function (data) {
-				data = angular.fromJson(data);
-				return data;
-			}
-		},
-		'create': { method:'POST', url: 'api/appParameters/:id'},
-		'update': { method:'PUT', url: 'api/appParameters/:id'},
-		'delete': { method:'DELETE', url: 'api/appParameters/:id' },
-		'search': { method: 'POST', url: 'api/appParameters/search/', isArray: false}
-		,'getParameter': {method: 'GET',
-			url: 'api/appParameters/finder/:domain,:key',
-			transformResponse: function (data) {
-				$log.info("data after WS call: " + data);
-				if (data !== "") {
-					/* method fromJson crashes if data is empty */
-					data = angular.fromJson(data);
-				}
-				return data;
-			}
-		}
-	});
-});
+	return {
+		'query': {},
+		'get': {},
+		'create': {},
+		'update': {},
+		'delete': {},
+		'search': {}
+		,'getParameter': {}
+}});
 
 /** REST client for managing Elastic search calls on AppParameter entity */
 app.factory('AppParameterRestSearchService', function ($resource) {

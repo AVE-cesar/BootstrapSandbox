@@ -10,12 +10,13 @@
 app.controller("BookController", ["$scope", "$window", "$aside", 
 "$log", "BookRestService", "BookRestSearchService", 
 		"BookRestIndexService", "BookRestMassDeleteService",
-									"$alert", "$timeout", "config", function(scope, window, c, log, 
+									"$alert", "$timeout", "config", "data", function(scope, window, c, log, 
 		bookRestService, bookRestSearchService, bookRestIndexService, 
 		bookRestMassDeleteService, 
-									alertService, timeoutService, config) {
+									alertService, timeoutService, config, data) {
 
 log.info("inside BookController, config.value: " + config.value);
+log.info("inside BookController, data: " + data);
 scope.configValue = angular.fromJson(config.value);
 		
 scope.settings = {
@@ -36,7 +37,9 @@ scope.savedSearch = {};
 scope.selectAll = false;
 
 // data to fill the grid
-scope.data = [];
+log.info("on utilise data du resolve");
+scope.data = data;
+
 
 /** Refresh the result grid via a REST call, gets only the first page */
 scope.refresh = function () {
@@ -189,7 +192,7 @@ scope.loadOneItem = function(id) {
 };
 
 /* fill the result grid by default (first page only) */
-scope.refreshByPage(0, scope.totalElementsPerPage);
+//scope.refreshByPage(0, scope.totalElementsPerPage);
 
 /** defines the CRUD aside */
 var crudAside = c({
@@ -448,7 +451,9 @@ scope.$on("$destroy", function() {
 /* appel static */
 app.factory('BookRestService', function ($resource) {
 	return {
-		'query': {},
+		'query': function(page, size, addMode) {
+					return [{id: "1", title: "Java", description: "cool"},{id: "2", title: "C++", description: "cool"}];
+				},
 		'get': {},
 		'create': {},
 		'update': {},

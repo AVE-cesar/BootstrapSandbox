@@ -46,7 +46,7 @@
         <tbody>
         
           <tr ng-show="data.length == 0">
-            <td colspan="1" align="center"><a ng-click="searchItem()">{{ 'NO_DATA' | translate }}</a></td>
+            <td colspan="70" align="center"><a ng-click="searchItem()">{{ 'NO_DATA' | translate }}</a></td>
           </tr>        
         
           <tr ng-repeat="(key, item) in data" ng-click="item.selected=!item.selected"  ng-dblclick="editItem(item)">
