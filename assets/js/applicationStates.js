@@ -184,13 +184,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             })
-		.state('searchDetail.load', {
+		.state('searchDetailLoad', {
             url: "/searchDetailload",
             views: {
+				"searchView": {
+					templateUrl: "assets/tpl/commons/searchDetailsearch.html",
+					controller: "SearchDetailController"
+				},
 				"mainView": {
 					templateUrl: "assets/tpl/commons/searchDetailMain2.html",
 					controller: "SearchDetailController"
-				}
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             });
  

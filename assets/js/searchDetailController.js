@@ -6,4 +6,8 @@ app.controller("SearchDetailController", ["$scope",
 
 log.info("inside SearchDetailController");
 
+scope.page = "Page Search";
+
+log.info("scope.page= " + scope.page);
+
 }]);
