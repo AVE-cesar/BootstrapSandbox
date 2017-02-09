@@ -7,3 +7,7 @@
 .container-full {
 	width: 2000px;
 }
+
+[ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak {
+display: none;
+}

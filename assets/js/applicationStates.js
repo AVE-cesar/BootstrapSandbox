@@ -222,6 +222,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
     });
+
+    $stateProvider
+    	.state('login', {
+      		url: "/login",
+			views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/login.html",
+					controller : "LoginController"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				},
+			resolve: {
+				credential : function() {
+      				return {"login": "admin", "password": "admin"};
+    			}
+			}
+    });
     
     $stateProvider
     	.state('logout', {
