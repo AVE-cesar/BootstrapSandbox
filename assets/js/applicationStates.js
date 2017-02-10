@@ -170,6 +170,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
 				}
             })
+		.state('modalWizard', {
+            url: "/modalWizard",
+            views: {
+				"mainView": {
+					templateUrl: "assets/tpl/commons/modalWizard.html"
+				},
+				"footerView": {templateUrl: "assets/tpl/commons/emptyFooter.html"}
+				}
+            })
 		.state('searchDetail', {
             url: "/searchDetail",
             views: {
