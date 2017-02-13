@@ -6,6 +6,10 @@
     "angular-strap": "^2.3.12",
     "material-design-icons": "^3.0.1",
     "bootstrap": "^3.3.7",
-    "ng-csv": "^0.3.6"
+    "ng-csv": "^0.3.6",
+    "angular-cookies": "^1.6.2",
+    "angular-resource": "^1.6.2",
+    "angular-translate": "^2.14.0",
+    "angular-ui-router": "^0.4.2"
   }
 }
