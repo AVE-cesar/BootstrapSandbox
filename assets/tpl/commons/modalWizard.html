@@ -1,0 +1,111 @@
+<script>
+/* code JS qui permet de réagir sur les clicks sur les boutons de la popup */
+$(document).ready(function(){
+  $('.next').click(function(){
+    var nextId = $(this).parents('.tab-pane').next().attr("id");
+    $('[href=#'+nextId+']').tab('show');
+    return false;
+  })
+  
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    //update progress
+    var step = $(e.target).data('step');
+    var percent = (parseInt(step) / 4) * 100;
+    $('.progress-bar').css({width: percent + '%'});
+    $('.progress-bar').text("Step " + step + " of 4");
+    //e.relatedTarget // previous tab
+  })
+ 
+  $('.first').click(function(){
+    $('#myWizard a:first').tab('show')
+  })
+});
+</script>
+
+<h3>Bootstrap Wizard with Modal</h3>
+  
+  <hr>
+  <a href="#myModal" role="button" class="btn btn-default btn-lg" data-toggle="modal">Start</a>
+  
+  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Wizard Steps</h3>
+        </div>
+        <div class="modal-body" id="myWizard">
+          
+         <div class="progress">
+           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 20%;">
+             Step 1 of 5
+           </div>
+         </div>
+        
+         <div class="navbar">
+            <div class="navbar-inner">
+                  <ul class="nav nav-pills">
+                     <li class="active"><a href="#step1" data-toggle="tab" data-step="1">Step 1</a></li>
+                     <li><a href="#step2" data-toggle="tab" data-step="2">Step 2</a></li>
+                     <li><a href="#step3" data-toggle="tab" data-step="3">Step 3</a></li>
+                     <li><a href="#step4" data-toggle="tab" data-step="4">Step 4</a></li>
+                  </ul>
+            </div>
+         </div>
+         <div class="tab-content">
+            <div class="tab-pane fade in active" id="step1">
+               
+              <div class="well"> 
+                
+                  <label>Security Question 1</label>
+                  <select class="form-control input-lg">
+                    <option value="What was the name of your first pet?">What was the name of your first pet?</option>
+                    <option value="Where did you first attend school?">Where did you first attend school?</option>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What is your favorite car model?">What is your favorite car model?</option>
+                  </select>
+                  <br>
+                  <label>Enter Response</label>
+                  <input class="form-control input-lg">
+              </div>
+              <a class="btn btn-default next" href="#">Continue</a>
+            </div>
+            <div class="tab-pane fade" id="step2">
+               <div class="well"> 
+                  <label>Security Question 2</label>
+                  <select class="form-control  input-lg">
+                    <option value="What was the name of your first pet?">What was the name of your first pet?</option>
+                    <option selected="" value="Where did you first attend school?">Where did you first attend school?</option>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What is your favorite car model?">What is your favorite car model?</option>
+                  </select>
+                  <br>
+                  <label>Enter Response</label>
+                  <input class="form-control input-lg">
+               </div>
+               <a class="btn btn-default next" href="#">Continue</a>
+            </div>
+            <div class="tab-pane fade" id="step3">
+              <div class="well"> <h2>Step 3</h2> Add another step here..</div>
+               <a class="btn btn-default next" href="#">Continue</a>
+            </div>
+            <div class="tab-pane fade" id="step4">
+              <div class="well"> <h2>Step 4</h2> You're Done!</div>
+               <a class="btn btn-success first" href="#">Start over</a>
+            </div>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <a href="http://www.bootply.com/hLCsixfhTO">Edit on Bootply</a>
+  
+  <hr>
+  
