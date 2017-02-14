@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="./assets/css/bootstrap.css" media="screen">
     
-    <link rel="stylesheet" href="http://mgcrea.github.io/angular-strap/styles/libs.min.css">
+    <!--link rel="stylesheet" href="http://mgcrea.github.io/angular-strap/styles/libs.min.css"-->
     <!--link rel="stylesheet" href="http://mgcrea.github.io/angular-strap/styles/docs.min.css"-->
     
     <link rel="stylesheet" href="./assets/css/bootstrap-drawer.css"/>
@@ -37,23 +37,27 @@
 
   </head>
   <body   class="has-drawer">
-     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!--script src="https://code.jquery.com/jquery-1.10.2.min.js"></script-->
+	<script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/drawer.js"></script>
     <script src="./assets/js/custom.js"></script>
 	
 	
-	<!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script-->
-	<script src="./bower_components/angularjs/1.5.5/angular.min.js"></script>
+	<!-- OLD LINK before bower all script src="./bower_components/angularjs/1.5.5/angular.min.js"></script-->
+	<script src="./bower_componentsOLD/angular/1.5.5/angular.min.js"></script>
 	
 	<!-- 5 librairies suivantes pour MGCREA -->
 	<script src="http://cdn.jsdelivr.net/angularjs/1.5.5/angular-animate.min.js" data-semver="1.5.5"></script>
-    <script src="http://cdn.jsdelivr.net/angularjs/1.5.5/angular-sanitize.min.js" data-semver="1.5.5"></script>
-	<script src="http://mgcrea.github.io/angular-strap/dist/angular-strap.js" data-semver="v2.3.8"></script>
-    <script src="http://mgcrea.github.io/angular-strap/dist/angular-strap.tpl.js" data-semver="v2.3.8"></script>
-    <script src="http://mgcrea.github.io/angular-strap/docs/angular-strap.docs.tpl.js" data-semver="v2.3.8"></script>
+	<!--script src="http://cdn.jsdelivr.net/angularjs/1.5.5/angular-sanitize.min.js" data-semver="1.5.5"></script-->
+    <script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<!--script src="http://mgcrea.github.io/angular-strap/dist/angular-strap.js" data-semver="v2.3.8"></script-->
+	<script src="./bower_components/angular-strap/dist/angular-strap.min.js"></script>
+    <!--script src="http://mgcrea.github.io/angular-strap/dist/angular-strap.tpl.js" data-semver="v2.3.8"></script-->
+	<script src="./bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <!--script src="http://mgcrea.github.io/angular-strap/docs/angular-strap.docs.tpl.js" data-semver="v2.3.8"></script-->
 	
-	<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 	
 	<!-- material icons from google matertial design http://google.github.io/material-design-icons/#icon-font-for-the-web -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
